@@ -1,4 +1,4 @@
-package TP1.Ej1;
+package TP1.EJ1;
 import java.util.Scanner;
 public class Ejercicio1 {
 
