@@ -5,7 +5,15 @@ public class profesor {
     private String apellido;
     private String email;
     private int catedras;
-    private String facutad;
+    private String facultad;
+
+    public profesor(String nombre, String apellido, String email, int catedras, String facultad) {
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.email = email;
+        this.catedras = catedras;
+        this.facultad = facultad;
+    }
 
     public String getApellido() {
         return apellido;
@@ -15,12 +23,12 @@ public class profesor {
         return catedras;
     }
 
-    public String getFacutad() {
-        return facutad;
+    public String getFacultad() {
+        return facultad;
     }
 
-    public void setFacutad(String facutad) {
-        this.facutad = facutad;
+    public void setFacultad(String facultad) {
+        this.facultad = facultad;
     }
 
     public String getEmail() {
@@ -47,12 +55,11 @@ public class profesor {
         this.nombre = nombre;
     }
 
-    public String tudatos (){
-        String aux = "el nombre del profesor "+ this.nombre+ "/n" +
-                "apellido "+ this.apellido + "/n"+
-                " email " + this.email + "/n" +
-                " catedra "+ this.catedras+ "/n" +
-                " facultad " + this.facutad;
-        return aux;
+    public String tusDatos() {
+        return "El nombre del profesor: " + this.nombre + "\n" +
+                "Apellido: " + this.apellido + "\n" +
+                "Email: " + this.email + "\n" +
+                "Cátedras: " + this.catedras + "\n" +
+                "Facultad: " + this.facultad;
     }
 }

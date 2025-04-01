@@ -4,8 +4,16 @@ public class estudiante {
     private String nombre;
     private String apellido;
     private int comision;
-    private String dirrecion;
+    private String direccion;
     private String email;
+
+    public estudiante(String nombre, String apellido, int comision, String direccion, String email) {
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.comision = comision;
+        this.direccion = direccion;
+        this.email = email;
+    }
 
     public String getNombre() {
         return nombre;
@@ -14,6 +22,7 @@ public class estudiante {
     public String getApellido() {
         return apellido;
     }
+
     public int getComision() {
         return comision;
     }
@@ -30,30 +39,27 @@ public class estudiante {
         this.email = email;
     }
 
-    public String getDirrecion() {
-        return dirrecion;
+    public String getDireccion() {
+        return direccion;
     }
 
-    public void setDirrecion(String dirrecion) {
-        this.dirrecion = dirrecion;
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
     }
 
     public void setApellido(String apellido) {
         this.apellido = apellido;
     }
 
-
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
-    public String tudatos () {
-        String aux = "el nombre del profesor " + this.nombre + "/n" +
-                "apellido " + this.apellido + "/n" +
-                " email " + this.dirrecion + "/n" +
-                " catedra " + this.comision + "/n" +
-                " facultad " + this.email;
-        return aux;
+
+    public String tusDatos() {
+        return "El nombre del estudiante: " + this.nombre + "\n" +
+                "Apellido: " + this.apellido + "\n" +
+                "Dirección: " + this.direccion + "\n" +
+                "Comisión: " + this.comision + "\n" +
+                "Email: " + this.email;
     }
 }
-
-
