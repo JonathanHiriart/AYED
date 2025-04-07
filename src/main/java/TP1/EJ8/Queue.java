@@ -49,6 +49,7 @@ public class Queue<T> extends Secuence{
         queue.dequeue();
         queue.dequeue();
 
+
         System.out.println("¿Está vacía?: " + queue.isEmpty());
     }
 }
