@@ -132,7 +132,25 @@ public class BinaryTree <T> {
 
     // 0<=n<=m
     public void entreNiveles(int n, int m){
-        
+        if (n<m){
+            return;
+        }
+        if (n>0 ){
+            if (this.hasLeftChild()){
+                this.leftChild.entreNiveles(n-1,m -1);
+            }
+            if (this.hasRightChild()){
+                this.rightChild.entreNiveles(n-1,m-1);
+            }
+        }else if(m>0){
+            System.out.println(this);
+            if (this.hasLeftChild()){
+                this.leftChild.entreNiveles(0,m-1);
+            }
+            if (this.hasRightChild()){
+                this.rightChild.entreNiveles(0,m-1);
+            }
+        }
     }
 
 }
