@@ -1,5 +1,6 @@
 package TP3.EJ1;
 
+import javax.swing.*;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -58,10 +59,27 @@ public class GeneralTree<T>{
             children.remove(child);
     }
 
-    public int altura() {
+    public int altura(GeneralTree<Integer> a) {
+        // Caso base: si el árbol es null o no tiene hijos, su altura es 0
+        if (a == null || a.getChildren().isEmpty()) {
+            return 0;
+        }
 
-        return 0;
+        int alturaMax = 0;
+        List<GeneralTree<Integer>> hijos = a.getChildren();
+
+        // Recorremos todos los hijos para calcular la altura de cada subárbol
+        for (GeneralTree<Integer> child : hijos) {
+            int alturaHijo = altura(child); // cálculo recursivo de la altura del hijo
+            if (alturaHijo > alturaMax) {
+                alturaMax = alturaHijo; // actualizo si encuentro una altura mayor
+            }
+        }
+
+        // Retornamos la altura máxima encontrada entre los hijos más 1 (nivel actual)
+        return alturaMax + 1;
     }
+
 
     public int nivel(T dato){
         return 0;
