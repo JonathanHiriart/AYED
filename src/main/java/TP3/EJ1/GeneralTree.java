@@ -1,5 +1,7 @@
 package TP3.EJ1;
 
+import TP1.EJ8.Queue;
+
 import javax.swing.*;
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -81,12 +83,50 @@ public class GeneralTree<T>{
     }
 
 
-    public int nivel(T dato){
-        return 0;
+    public int nivel(T dato,GeneralTree<Integer> a){
+        if (a==null )return -1; // caso base arbol vacio
+        GeneralTree<Integer> nodo;
+        Queue<GeneralTree<Integer>> cola = new Queue<>();
+        cola.enqueue(a);
+        int nivelActual=0;
+        while(!cola.isEmpty())
+        {
+            int cantNodoEnNivel= cola.size();
+            for(int i=0;i<cantNodoEnNivel;i++)
+            {
+                nodo= cola.dequeue();
+                if (nodo.getData().equals(dato)){
+                    return nivelActual;
+                }
+                List<GeneralTree<Integer>> hijos = nodo.getChildren();
+                for(GeneralTree<Integer> child:hijos)
+                {
+                    cola.enqueue(child);
+                }
+            }
+            nivelActual++;// siguiente nivel
+        }
+        return -1;// sino se encuentra devuelvo numero negativo
     }
 
-    public int ancho(){
-
-        return 0;
+    public int ancho(GeneralTree<Integer> a) {
+        if (a == null) return -1;
+        GeneralTree<Integer> nodo;
+        Queue<GeneralTree<Integer>> cola = new Queue<>();
+        cola.enqueue(a);
+        int anchoMax = 0;
+        while (!cola.isEmpty()){
+            int anchoActual= cola.size();
+            for(int i=0;i<anchoActual;i++){
+                nodo = cola.dequeue();
+                List<GeneralTree<Integer>> hijos= nodo.getChildren();
+                for(GeneralTree<Integer> child: hijos)
+                {
+                    cola.enqueue(child);
+                }
+            }
+            if(anchoActual>anchoMax) anchoMax=anchoActual;
+        }
+        return anchoMax;
     }
 }
