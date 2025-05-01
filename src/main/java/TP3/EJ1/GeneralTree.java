@@ -129,4 +129,35 @@ public class GeneralTree<T>{
         }
         return anchoMax;
     }
+    public boolean buscarDesendiente(T b){
+        if (this.data==null){
+            return false;
+        }
+        if (this.data.equals(b)){
+            return true;
+        }
+        for(GeneralTree<T> child:children){
+            if (child.buscarDesendiente(b)){
+                System.out.println("se encontro");
+                return true;
+            }
+        }
+        return false;
+
+    }
+    public boolean esAncestro(T a, T b){
+        if (this.data == null){
+            return false;
+        }
+        if (this.data.equals(a)){
+            System.out.println("Se encontro el nodo a buscando desendencia ..");
+            return buscarDesendiente(b);
+        }
+        for (GeneralTree<T> child:children){
+            if(esAncestro(a,b)){
+                return true;
+            }
+        }
+        return false;
+    }
 }
