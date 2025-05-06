@@ -34,7 +34,7 @@ public class Camino {
                 }
             }
         }
-        caminoActual.remove(caminoActual.size()-1); caminoActual.remove(caminoActual.size() - 1); // Elimina el nodo actual de caminoActual (backtracking)
+        caminoActual.remove(caminoActual.size()-1);// Elimina el nodo actual de caminoActual (backtracking)
         // para restaurar el camino al estado del nodo padre antes de explorar otros nodos o regresar en la recursión.
 //         12
 //        /  \
