@@ -21,7 +21,7 @@ public class ParcialArboles {
         // Recorro todos los hijos del nodo actual
         for(GeneralTree<Integer> hijo:a.getChildren()){
             // Llamo recursivamente para analizar cada subárbol (postorden)
-            Resultado resHijo=recorridoPost(hijo);
+            Resultado resHijo=recorridoPost(hijo); 
             // Si alguno de los hijos no cumple, ya corto y retorno false
             if(!resHijo.esValido){
                 return new Resultado(false ,0);

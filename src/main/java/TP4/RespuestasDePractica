@@ -1,0 +1,139 @@
+1.- Dado un árbol binario T cuyo recorrido postorden es A G F E B J I H C D y su recorrido inorden es
+A B G E F D J H I C ¿cuántos son los descendientes del nodo “C”?
+(a) 2 (b) 1 (c) 3 (d) ninguna de las anteriores
+la respuesta correcta es (C)
+los nodo que decienden de c son J,H,I
+
+
+2.- Defina árbol binario completo y árbol binario lleno.
+Ejemplifique. ¿Es verdad que todo árbol binario completo es
+lleno? ¿Y viceversa?
+
+un arbol binario completo se da cuando la altura n-1 es un arbol lleno y en la altura n se completa de izquierda a derecha
+
+un arbol lleno cumple que su altura n es parejo y cada nodo tiene 0 o 2 hijos
+
+3.- Suponga que para un árbol binario T con N nodos (N>1), el último nodo en postorden es el
+mismo que el último nodo en inorden, ¿qué se puede concluir?
+(a) El subárbol izquierdo de T es vacío
+(b) El subárbol derecho de T es vacío
+(c) Ningún nodo en el árbol tiene dos hijos
+(d) Hay a lo sumo 3 nodos en el árbol
+OPCION B
+la respuesta correcta es la b ya que para que sea el ultimo en postorden
+lo que indica que sea la raiz y para que sea el ultimo en in orden eso quiere decir que del sub arbol
+derecho es el ultimo es decir el hijo derecho del arbol raiz
+
+4.- Se han estudiado los distintos recorridos de un árbol binario. Abajo se muestra un código que
+combina dos de ellos. ¿Cuál es el resultado si se llama con la raíz del árbol de la figura?
+
+       C
+      / \
+     A   E
+    /   / \
+   B   D   F
+
+   public void traverse(ArbolBinario<T> a) {
+       if (!a.esVacio()) {
+           System.out.print(a.getDato());
+           if (a.tieneHijoIzquierdo()) {
+               traverse(a.getHijoIzquierdo());
+           }
+           if (a.tieneHijoDerecho()) {
+               traverse(a.getHijoDerecho());
+           }
+           System.out.print(a.getDato());
+       }
+   }
+[C, A, B, B, A, E, D, D, F, F, E, C] esto es lo que imprime
+
+
+5.- Evalúe la siguiente expresión postfija y determine cuál es el resultado.
+            6 5 * 7 3 − 4 8 + * +
+
+(a) 78 (b) 66 (c) 34 (d) 44
+
+La respuesta correcta es (a) 78
+
+
+6.- Elija la expresión algebraica almacenada en el siguiente árbol:
+          +
+        /   \
+      /       *
+    -   c    d   e
+  /  \
+a     b
+
+
+(a) ((a – b / c) + d * e)
+(b) (((a – b) / (c + d)) + d * e)
+(c) ((a – b / c) + (d * e))
+(d) (((a – b) / c) + (d * e))
+
+Respuesta (D)
+
+
+7.- ¿Cuál es el número mínimo de nodos en un árbol binario completo de altura 4?
+
+ (a) 10 (b) 15 (c) 12 (d) 31 (e) 16
+ sindo h = altura
+ un arbol completo de altura 4 como minimo tendria que tener n = (2^(h+1)+1)= 16
+
+
+8.- Construya el árbol de expresión correspondiente a la siguiente expresión postfija.
+6 5 * 7 3 − 4 8 * + +
+
+            +
+          /   \
+        *       +
+      /   \    /   \
+    6      5  -     ÷
+             / \   / \
+            7   3 4   6
+
+
+este es el arbol generado  muy importante es acordarse que si es un numero se apila
+hasta que llegue un operador lo que se sacan de la pila los ultimos 2 y se apila el resultado
+y asi hasta terminar el arbol
+Algoritmo:
+ tomo un carácter de la expresión
+ mientras ( existe carácter ) hacer
+ si es un operando -> creo un nodo y lo apilo.
+ si es un operador (lo tomo como la raíz de los dos últimos nodos creados)
+ -> creo un nodo R,
+ - desapilo y lo agrego como hijo derecho de R
+ - desapilo y lo agrego como hijo izquierdo de R
+ - apilo R.
+ tomo otro carácter
+ fin
+
+15.- La siguiente figura muestra un árbol general:
+             A
+          /   |   \
+        B     C     D
+      /   \        /  |  \
+     E     F      G   H   I
+         / | \    |       / \
+        J  K  L   M      N   O
+                 / \
+                P   Q
+
+(a) Complete los blancos de las sentencias con la terminología vista en clase.
+i.. A es la raíz del árbol.
+ii. A es padre de B, C y D.
+iii. E y F son hermanos, puesto que ambos son hijos de B.
+iv. ..E..J. .K...L..P. .Q..N.H..O..C.. ....... son las hojas del árbol.
+v. El camino desde A a J es único, lo conforman los nodos ...A.... .....B.. ....F... ...J.... y es de largo....3....
+vi. ....G... es ancestro de P, y por lo tanto ..G..... es descendiente de D.
+vii. L no es descendiente de C, puesto que no existe ...un ... .camino......desde C a L.
+viii. La profundidad/nivel de C es ...1...., de F es ....2... y de ..P..... es 4.
+ix. La altura de C es ...0...., de ...B.... es 1 y de D es ...3.....
+x. La altura del árbol es 4 (largo del camino entre la .A...... y ......P. ).
+
+
+16.- ¿Cuál es el número mínimo y máximo de nodos de un árbol general completo de altura h y
+grado k?
+ejemplo el k= 3 h=2
+la cantidad minima es de (k^(h+1)-1)/(k-1)=
+
+
