@@ -26,8 +26,7 @@ public class ParcialArboles {
         Queue<GeneralTree<Integer>> cola =new Queue<>();
         cola.enqueue(a);
         while (!cola.isEmpty()){
-            int cantNodo=cola.size();
-            int cantNodoQueCumplieron = 0;
+            int cantNodo=cola.size(), cantNodoQueCumplieron = 0;
             for (int i=0;i<cantNodo;i++){
 
                 nodo=cola.dequeue();
