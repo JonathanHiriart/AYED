@@ -5,25 +5,30 @@ import TP2.EJ1.BinaryTree;
 public class ParcialArboles2 {
     BinaryTree<Integer> arbol;
 
+    public ParcialArboles2(BinaryTree<Integer> raiz) {
+        this.arbol=raiz;
+    }
+
     public BinaryTree<Integer> nuevoTree(){
         if(arbol== null|| arbol.isEmpty()){
             return null;
         }
-        return copiarArbol(arbol);
+        int padre = arbol.getData();
+        BinaryTree<Integer> copia = new BinaryTree<>();
+        copiarArbol(arbol,copia,padre);
+        return copia;
     }
-    private BinaryTree<Integer> copiarArbol(BinaryTree<Integer> nodo){
-        BinaryTree<Integer> nuevo = new BinaryTree<>(nodo.getData());
+    private void copiarArbol(BinaryTree<Integer> nodo,BinaryTree<Integer> copia,int padre){
         if(nodo.hasLeftChild()){
-            int suma = nodo.getLeftChild().getData()+ nodo.getData(); // hago la suma del padre con el hijo izquierdo
-            BinaryTree<Integer> nuevoHijoIzquierdo = new BinaryTree<>(suma);
-            nuevo.addLeftChild(nuevoHijoIzquierdo);
-            nuevo.addLeftChild(copiarArbol(nodo.getLeftChild())); // agrego el izquierdo modificado y llamo a la recursividad con el nodo izquierdo
+            BinaryTree<Integer> nuevoHijoIzquierdo = nodo.getLeftChild();
+            nuevoHijoIzquierdo.setData(nodo.getData() + padre); // creo un hijo y le sumo con el padre
+            copia.addLeftChild(nuevoHijoIzquierdo);
+            copiarArbol(nodo.getLeftChild(),copia.getLeftChild(),nodo.getData());
         }
         if(nodo.hasRightChild()){
-            BinaryTree<Integer> nuevoHijoDerecho = new BinaryTree<>(nodo.getRightChild().getData());
-            nuevo.addRightChild(nuevoHijoDerecho);
-            nuevo.addRightChild(copiarArbol(nodo.getRightChild()));
+            BinaryTree<Integer> nuevoHijoDerecho = nodo.getRightChild();
+            copia.addRightChild(nuevoHijoDerecho);
+            copiarArbol(nodo.getRightChild(),copia.getRightChild(),nodo.getData());
         }
-        return nuevo;
     }
 }
