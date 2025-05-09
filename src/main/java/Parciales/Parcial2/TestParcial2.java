@@ -17,20 +17,18 @@ public class TestParcial2 {
 
         raiz.addLeftChild(n1);
         raiz.addRightChild(n2);
+
         n1.addLeftChild(h1);
+
+
         n2.addLeftChild(h2);
         n2.addRightChild(h3);
+
         h2.addLeftChild(h4);
 
-        ParcialArboles2 p= new ParcialArboles2(raiz);
-        BinaryTree<Integer> test = p.nuevoTree();
-
-        System.out.println(raiz.toString());
-
-        System.out.println(" ");
-
-        System.out.println(test.toString());
-
+        ParcialArboles2 prueba = new ParcialArboles2(raiz);
+        System.out.println(raiz);
+        System.out.println(prueba.nuevoTree());
     }
 
 }
