@@ -105,7 +105,10 @@ public class BinaryTree <T> {
             return spacing + data;
 
         int dataLength = getData().toString().length();
-        String dataLengthSpacing = " ".repeat(dataLength-1);
+        String dataLengthSpacing = " ";
+        for (int i = 0; i < dataLength-2; i++) {
+            dataLengthSpacing+=" ";
+        }
 
         String upperSpacing = spacing + (sonstat == SON_STATUS.DOWN ? "║   " : "    ") + dataLengthSpacing;
         String downSpacing = spacing + (sonstat == SON_STATUS.UP ? "║   " : "    ") + dataLengthSpacing;
