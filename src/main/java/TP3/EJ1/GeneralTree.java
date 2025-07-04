@@ -1,9 +1,4 @@
 package TP3.EJ1;
-
-<<<<<<< HEAD
-public class GeneralTree {
-}
-=======
 import TP1.EJ8.Queue;
 
 import javax.swing.*;
@@ -165,4 +160,3 @@ public class GeneralTree<T>{
         return false;
     }
 }
->>>>>>> 0ec13c0bc50fc9f6a21c86742cd13b97ec9f65aa
